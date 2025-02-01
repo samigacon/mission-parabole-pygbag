@@ -124,14 +124,14 @@ def draw_axes():
         x = origin_x + i * step_x
         pygame.draw.line(screen, ORANGE, (x, origin_y - 5), (x, origin_y + 5), 1)
         if i != 0:
-            label = font.render(f"{i}", True, ORANGE)
+            label = font.render("{}".format(i), True, ORANGE)
             screen.blit(label, (x - 10, origin_y + 10))
 
     for i in range(int(ymin), int(ymax) + 1):
         y = origin_y - i * step_y
         pygame.draw.line(screen, ORANGE, (origin_x - 5, y), (origin_x + 5, y), 1)
         if i != 0:
-            label = font.render(f"{i}", True, ORANGE)
+            label = font.render("{}".format(i), True, ORANGE)
             screen.blit(label, (origin_x - 30, y - 10))
 
     pygame.draw.line(screen, ORANGE, (origin_x + xmin * step_x, origin_y),
@@ -218,7 +218,7 @@ def main():
                 point["color"] = GREEN if all_correct else WHITE
                 pygame.draw.circle(screen, point["color"], point["pos"], point["radius"])
                 cart_x, cart_y = point["target"]
-                draw_text_centered(f"{name}({cart_x};{cart_y})", font, point["color"], screen, point["pos"][0] - 70, point["pos"][1] - 20)
+                draw_text_centered("{}({};{})".format(name, cart_x, cart_y), font, point["color"], screen, point["pos"][0] - 70, point["pos"][1] - 20)
 
             # Dessiner l'onglet "Poursuivre" si tous les points sont correctement placés
             if all_correct:
